@@ -11,8 +11,8 @@
   export let text = undefined;
 
   import Copy from "../Copy/Copy.svelte";
-  import Copy16 from "carbon-icons-svelte/lib/Copy16/Copy16.svelte";
-  import copy from "clipboard-copy";
+  import Copy16 from "../../icons/Copy16/Copy16.svelte";
+  import { clipboardCopy as copy } from "../../deps.ts";
   import { createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();

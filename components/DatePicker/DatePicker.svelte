@@ -55,7 +55,7 @@
     onDestroy,
   } from "svelte";
   import { writable, derived } from "svelte/store";
-  import { createCalendar } from "./createCalendar";
+  import { createCalendar } from "./createCalendar.js";
 
   const dispatch = createEventDispatcher();
   const inputs = writable([]);

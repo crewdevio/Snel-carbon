@@ -13,10 +13,10 @@
   export let searchIsActive = false;
 
   import { createEventDispatcher } from "svelte";
-  import Close20 from "carbon-icons-svelte/lib/Close20";
-  import Search20 from "carbon-icons-svelte/lib/Search20";
-  import { Icon } from "../../Icon";
-  import searchStore from "../searchStore";
+  import Close20 from "../../../icons/Close20/Close20.svelte";
+  import Search20 from "../../../icons/Search20/Search20.svelte";
+  import Icon from "../../Icon/Icon.svelte";
+  import searchStore from "../searchStore.js";
 
   const dispatch = createEventDispatcher();
 

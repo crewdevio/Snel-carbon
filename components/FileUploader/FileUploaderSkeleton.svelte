@@ -1,6 +1,6 @@
 <script>
-  import { ButtonSkeleton } from "../Button";
-  import { SkeletonText } from "../SkeletonText";
+  import ButtonSkeleton from "../Button/ButtonSkeleton.svelte";
+  import SkeletonText from "../SkeletonText/SkeletonText.svelte";
 </script>
 
 <div

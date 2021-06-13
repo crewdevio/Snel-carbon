@@ -73,9 +73,9 @@
   export let ref = null;
 
   import { createEventDispatcher } from "svelte";
-  import Close16 from "carbon-icons-svelte/lib/Close16/Close16.svelte";
-  import Close20 from "carbon-icons-svelte/lib/Close20/Close20.svelte";
-  import Search16 from "carbon-icons-svelte/lib/Search16/Search16.svelte";
+  import Close16 from "../../icons/Close16/Close16.svelte";
+  import Close20 from "../../icons/Close20/Close20.svelte";
+  import Search16 from "../../icons/Search16/Search16.svelte";
   import SearchSkeleton from "./SearchSkeleton.svelte";
 
   const dispatch = createEventDispatcher();

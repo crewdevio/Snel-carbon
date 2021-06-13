@@ -12,7 +12,7 @@
   export let isOpen = false;
 
   import { onMount } from "svelte";
-  import { shouldRenderHamburgerMenu } from "../navStore";
+  import { shouldRenderHamburgerMenu } from "../navStore.js";
 
   onMount(() => {
     shouldRenderHamburgerMenu.set(true);

@@ -17,7 +17,7 @@
   /** Obtain a reference to the HTML button element */
   export let ref = null;
 
-  import ChevronDown16 from "carbon-icons-svelte/lib/ChevronDown16/ChevronDown16.svelte";
+  import ChevronDown16 from "../../../icons/ChevronDown16/ChevronDown16.svelte";
   import Icon from "../../Icon/Icon.svelte";
 </script>
 

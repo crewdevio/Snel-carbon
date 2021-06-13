@@ -77,8 +77,8 @@
   export let ref = null;
 
   import { createEventDispatcher, tick } from "svelte";
-  import copy from "clipboard-copy";
-  import ChevronDown16 from "carbon-icons-svelte/lib/ChevronDown16/ChevronDown16.svelte";
+  import { clipboardCopy as copy } from "../../deps.ts";
+  import ChevronDown16 from "../../icons/ChevronDown16/ChevronDown16.svelte";
   import Button from "../Button/Button.svelte";
   import Copy from "../Copy/Copy.svelte";
   import CopyButton from "../CopyButton/CopyButton.svelte";

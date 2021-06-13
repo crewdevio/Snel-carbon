@@ -50,8 +50,8 @@
 
   import { onMount, getContext, createEventDispatcher, tick } from "svelte";
   import ContextMenu from "./ContextMenu.svelte";
-  import Checkmark16 from "carbon-icons-svelte/lib/Checkmark16/Checkmark16.svelte";
-  import CaretRight16 from "carbon-icons-svelte/lib/CaretRight16/CaretRight16.svelte";
+  import Checkmark16 from "../../icons/Checkmark16/Checkmark16.svelte";
+  import CaretRight16 from "../../icons/CaretRight16/CaretRight16.svelte";
 
   const dispatch = createEventDispatcher();
   const ctx = getContext("ContextMenu");

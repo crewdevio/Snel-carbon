@@ -35,7 +35,7 @@
   /** Obtain a reference to the HTML anchor element */
   export let ref = null;
 
-  import { shouldRenderHamburgerMenu } from "../navStore";
+  import { shouldRenderHamburgerMenu } from "../navStore.js";
   import HamburgerMenu from "../SideNav/HamburgerMenu.svelte";
 
   let winWidth = undefined;

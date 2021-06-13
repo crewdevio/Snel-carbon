@@ -97,14 +97,12 @@
   export let ref = null;
 
   import { createEventDispatcher } from "svelte";
-  import WarningFilled16 from "carbon-icons-svelte/lib/WarningFilled16/WarningFilled16.svelte";
-  import WarningAltFilled16 from "carbon-icons-svelte/lib/WarningAltFilled16/WarningAltFilled16.svelte";
-  import {
-    ListBox,
-    ListBoxMenu,
-    ListBoxMenuIcon,
-    ListBoxMenuItem,
-  } from "../ListBox";
+  import WarningFilled16 from "../../icons/WarningFilled16/WarningFilled16.svelte";
+  import WarningAltFilled16 from "../../icons/WarningAltFilled16/WarningAltFilled16.svelte";
+  import ListBox from "../ListBox/ListBox.svelte";
+  import ListBoxMenu from "../ListBox/ListBoxMenu.svelte";
+  import ListBoxMenuIcon from "../ListBox/ListBoxMenuIcon.svelte";
+  import ListBoxMenuItem from "../ListBox/ListBoxMenuItem.svelte";
 
   const dispatch = createEventDispatcher();
 
