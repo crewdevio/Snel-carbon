@@ -1,0 +1,43 @@
+<script>
+  let className = undefined;
+  export { className as class };
+  export let id = undefined;
+  export let tabindex = undefined;
+  export let focusable = false;
+  export let title = undefined;
+  export let style = undefined;
+
+  $: ariaLabel = $$props['aria-label'];
+  $: ariaLabelledBy = $$props['aria-labelledby'];
+  $: labelled = ariaLabel || ariaLabelledBy || title;
+  $: attributes = {
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledBy,
+    'aria-hidden': labelled ? undefined : true,
+    role: labelled ? 'img' : undefined,
+    focusable: tabindex === '0' ? true : focusable,
+    tabindex
+  };
+</script>
+
+<svg
+  data-carbon-icon="AccumulationRain32"
+  on:click
+  on:mouseover
+  on:mouseenter
+  on:mouseleave
+  on:keyup
+  on:keydown
+  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="32" height="32"
+  class={className}
+  preserveAspectRatio="xMidYMid meet"
+  {style}
+  {id}
+  {...attributes}>
+  <path d="M28,4a2.0023,2.0023,0,0,0-2,2V8H24a3.4376,3.4376,0,0,1-3.0513-2.3164A1.007,1.007,0,0,0,20,5a.9894.9894,0,0,0-.9468.6787A3.44,3.44,0,0,1,16,8a3.4376,3.4376,0,0,1-3.0513-2.3164A1.007,1.007,0,0,0,12,5a.971.971,0,0,0-.9468.6787A3.44,3.44,0,0,1,8,8H6V6A2.0023,2.0023,0,0,0,4,4H2V6H4V26a2.0023,2.0023,0,0,0,2,2H26a2.0023,2.0023,0,0,0,2-2V6h2V4ZM6,26V22h4V20H6V16h4V14H6V10H8a4.9316,4.9316,0,0,0,4-1.9873,5.0192,5.0192,0,0,0,8,0A4.9316,4.9316,0,0,0,24,10h2V26Z"></path>
+  <slot>
+    {#if title}
+      <title>{title}</title>
+    {/if}
+  </slot>
+</svg>

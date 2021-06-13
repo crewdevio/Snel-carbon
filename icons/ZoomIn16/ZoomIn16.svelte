@@ -1,0 +1,43 @@
+<script>
+  let className = undefined;
+  export { className as class };
+  export let id = undefined;
+  export let tabindex = undefined;
+  export let focusable = false;
+  export let title = undefined;
+  export let style = undefined;
+
+  $: ariaLabel = $$props['aria-label'];
+  $: ariaLabelledBy = $$props['aria-labelledby'];
+  $: labelled = ariaLabel || ariaLabelledBy || title;
+  $: attributes = {
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledBy,
+    'aria-hidden': labelled ? undefined : true,
+    role: labelled ? 'img' : undefined,
+    focusable: tabindex === '0' ? true : focusable,
+    tabindex
+  };
+</script>
+
+<svg
+  data-carbon-icon="ZoomIn16"
+  on:click
+  on:mouseover
+  on:mouseenter
+  on:mouseleave
+  on:keyup
+  on:keydown
+  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" width="16" height="16"
+  class={className}
+  preserveAspectRatio="xMidYMid meet"
+  {style}
+  {id}
+  {...attributes}>
+  <path d="M9 6L7 6 7 4 6 4 6 6 4 6 4 7 6 7 6 9 7 9 7 7 9 7z"></path><path d="M10.7,10C11.5,9,12,7.8,12,6.5C12,3.5,9.5,1,6.5,1S1,3.5,1,6.5S3.5,12,6.5,12c1.3,0,2.5-0.5,3.5-1.3l3.8,3.8l0.7-0.7	L10.7,10z M6.5,11C4,11,2,9,2,6.5S4,2,6.5,2S11,4,11,6.5S9,11,6.5,11L6.5,11z"></path>
+  <slot>
+    {#if title}
+      <title>{title}</title>
+    {/if}
+  </slot>
+</svg>

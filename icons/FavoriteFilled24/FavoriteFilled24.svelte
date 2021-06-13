@@ -1,0 +1,43 @@
+<script>
+  let className = undefined;
+  export { className as class };
+  export let id = undefined;
+  export let tabindex = undefined;
+  export let focusable = false;
+  export let title = undefined;
+  export let style = undefined;
+
+  $: ariaLabel = $$props['aria-label'];
+  $: ariaLabelledBy = $$props['aria-labelledby'];
+  $: labelled = ariaLabel || ariaLabelledBy || title;
+  $: attributes = {
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledBy,
+    'aria-hidden': labelled ? undefined : true,
+    role: labelled ? 'img' : undefined,
+    focusable: tabindex === '0' ? true : focusable,
+    tabindex
+  };
+</script>
+
+<svg
+  data-carbon-icon="FavoriteFilled24"
+  on:click
+  on:mouseover
+  on:mouseenter
+  on:mouseleave
+  on:keyup
+  on:keydown
+  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="24" height="24"
+  class={className}
+  preserveAspectRatio="xMidYMid meet"
+  {style}
+  {id}
+  {...attributes}>
+  <path d="M22.5,4c-2,0-3.9,0.8-5.3,2.2L16,7.4l-1.1-1.1C12,3.3,7.2,3.3,4.3,6.2c0,0-0.1,0.1-0.1,0.1c-3,3-3,7.8,0,10.8L16,29	l11.8-11.9c3-3,3-7.8,0-10.8C26.4,4.8,24.5,4,22.5,4z"></path>
+  <slot>
+    {#if title}
+      <title>{title}</title>
+    {/if}
+  </slot>
+</svg>

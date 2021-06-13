@@ -1,0 +1,43 @@
+<script>
+  let className = undefined;
+  export { className as class };
+  export let id = undefined;
+  export let tabindex = undefined;
+  export let focusable = false;
+  export let title = undefined;
+  export let style = undefined;
+
+  $: ariaLabel = $$props['aria-label'];
+  $: ariaLabelledBy = $$props['aria-labelledby'];
+  $: labelled = ariaLabel || ariaLabelledBy || title;
+  $: attributes = {
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledBy,
+    'aria-hidden': labelled ? undefined : true,
+    role: labelled ? 'img' : undefined,
+    focusable: tabindex === '0' ? true : focusable,
+    tabindex
+  };
+</script>
+
+<svg
+  data-carbon-icon="ZoomArea16"
+  on:click
+  on:mouseover
+  on:mouseenter
+  on:mouseleave
+  on:keyup
+  on:keydown
+  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="16" height="16"
+  class={className}
+  preserveAspectRatio="xMidYMid meet"
+  {style}
+  {id}
+  {...attributes}>
+  <path d="M32,30.5859l-4.6885-4.6884a8.028,8.028,0,1,0-1.414,1.414L30.5859,32ZM21,27a6,6,0,1,1,6-6A6.0066,6.0066,0,0,1,21,27Z"></path><path d="M6 22H8V24H6z" transform="rotate(180 7 23)"></path><path d="M2 22H4V24H2z" transform="rotate(180 3 23)"></path><path d="M10 22H12V24H10z" transform="rotate(180 11 23)"></path><path d="M2 18H4V20H2z" transform="rotate(180 3 19)"></path><path d="M18 22H20V24H18z" transform="rotate(180 19 23)"></path><path d="M22 22H24V24H22z" transform="rotate(180 23 23)"></path><path d="M22 18H24V20H22z" transform="rotate(180 23 19)"></path><path d="M22 6H24V8H22z" transform="rotate(180 23 7)"></path><path d="M22 10H24V12H22z" transform="rotate(180 23 11)"></path><path d="M22 2H24V4H22z" transform="rotate(180 23 3)"></path><path d="M18 2H20V4H18z" transform="rotate(180 19 3)"></path><path d="M14 2H16V4H14z" transform="rotate(180 15 3)"></path><path d="M10 2H12V4H10z" transform="rotate(180 11 3)"></path><path d="M2 14H4V16H2z" transform="rotate(180 3 15)"></path><path d="M2 10H4V12H2z" transform="rotate(180 3 11)"></path><path d="M2 6H4V8H2z" transform="rotate(180 3 7)"></path><path d="M6 2H8V4H6z" transform="rotate(180 7 3)"></path><path d="M2 2H4V4H2z" transform="rotate(180 3 3)"></path>
+  <slot>
+    {#if title}
+      <title>{title}</title>
+    {/if}
+  </slot>
+</svg>

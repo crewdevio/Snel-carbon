@@ -1,0 +1,43 @@
+<script>
+  let className = undefined;
+  export { className as class };
+  export let id = undefined;
+  export let tabindex = undefined;
+  export let focusable = false;
+  export let title = undefined;
+  export let style = undefined;
+
+  $: ariaLabel = $$props['aria-label'];
+  $: ariaLabelledBy = $$props['aria-labelledby'];
+  $: labelled = ariaLabel || ariaLabelledBy || title;
+  $: attributes = {
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledBy,
+    'aria-hidden': labelled ? undefined : true,
+    role: labelled ? 'img' : undefined,
+    focusable: tabindex === '0' ? true : focusable,
+    tabindex
+  };
+</script>
+
+<svg
+  data-carbon-icon="SkipForwardOutlineFilled32"
+  on:click
+  on:mouseover
+  on:mouseenter
+  on:mouseleave
+  on:keyup
+  on:keydown
+  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="32" height="32"
+  class={className}
+  preserveAspectRatio="xMidYMid meet"
+  {style}
+  {id}
+  {...attributes}>
+  <path d="M10 19.301L15.941 16 10 12.699 10 19.301z"></path><path d="M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Zm2.4858,14.874-9,5A1,1,0,0,1,8,21V11a1,1,0,0,1,1.4858-.874l9,5a1,1,0,0,1,0,1.748ZM24,22H22V10h2Z"></path><path fill="none" d="M22 10H24V22H22zM8.4927 21.8618A1 1 0 018 21V11a1 1 0 011.4858-.8743l9 5a1 1 0 010 1.7486l-9 5a1.0009 1.0009 0 01-.9931-.0125zM10 12.7v6.601L15.9409 16z"></path>
+  <slot>
+    {#if title}
+      <title>{title}</title>
+    {/if}
+  </slot>
+</svg>
